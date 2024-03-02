@@ -12,7 +12,46 @@
 
 <body>
     <header>
-        <h1>Hello</h1>
+        <!-- navbar section -->
+        <section class="mr-2 lg:mx-24 lg:mt-8">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                  <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                      <li><a>Home</a></li>
+                      <li><a>Edit Profile</a></li>
+                      <li><a>Add People</a></li>
+                      <li><a>Flag</a></li>
+                      <li><a>Sign In</a></li>
+                    </ul>
+                  </div>
+                  <img class="mx-auto lg:mx-0 cursor-pointer" src="./images/logo.png" alt="">
+                </div>
+               
+                <div class="navbar-end hidden lg:flex">
+                  <div class="flex items-center gap-2">
+                    <div class="tooltip rounded-full border-2 cursor-pointer" data-tip="Home">
+                        <img class="h-10 w-10  p-2" src="./images/home.png" alt="">
+                    </div>
+                    <div class="tooltip rounded-full border-2 cursor-pointer" data-tip="Edit">
+                        <img class="h-10 w-10  p-2" src="./images/pen.png" alt="">
+                    </div>
+                    <div class="tooltip rounded-full border-2 cursor-pointer" data-tip="Add">
+                        <img class="h-10 w-10  p-2" src="./images/add.png" alt="">
+                    </div>
+                    <div class="tooltip rounded-full border-2 cursor-pointer" data-tip="Flag">
+                        <img class="h-10 w-10  p-2" src="./images/flag.png" alt="">
+                    </div>
+                    <a class="ml-3 btn bg-[#797DFC] text-white text-lg font-medium text-center">Sign In</a>
+                  </div>
+                </div>
+              </div>
+        </section>
+
+        <!-- banner section -->
     </header>
 
     <main>
