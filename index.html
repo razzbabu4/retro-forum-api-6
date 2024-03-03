@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200..1000&display=swap" rel="stylesheet">
     <!-- daisy ui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,10 +16,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .font-family{
+            font-family: "Mulish", sans-serif;
+        }
+    </style>
 
 </head>
 
-<body>
+<body class="font-family">
     <header>
         <!-- navbar section -->
         <section class="lg:mx-24 lg:mt-8">
@@ -72,7 +81,8 @@
                         <p class="text-white">Share your favorite opinion and win and wp forum coffee mug!</p>
                         <div class="bg-white p-2 rounded-3xl flex gap-4 justify-between lg:w-4/5">
                             <input id="Search-text" type="text" placeholder="Search" class="input w-full" />
-                            <button onclick="searchCategoryPost()" class="bg-blue-600 btn text-lg text-white font-medium">Search</button>
+                            <button onclick="searchCategoryPost()"
+                                class="bg-blue-600 btn text-lg text-white font-medium">Search</button>
                         </div>
                     </div>
                     <div class="bg-white p-4 m-4 lg:p-10 rounded-3xl flex justify-between lg:gap-12">
@@ -100,7 +110,8 @@
         <section id="discuss-section" class="mx-4 my-4 lg:mx-24 lg:mt-16">
             <div class="text-center space-y-4 lg:mb-16">
                 <h1 class="text-3xl lg:text-5xl font-bold ">Let’s Discuss</h1>
-                <p class="lg:w-2/4 text-center mx-auto text-[#12132D99]">Yes, you can run unit tests and view the results
+                <p class="lg:w-2/4 text-center mx-auto text-[#12132D99]">Yes, you can run unit tests and view the
+                    results
                     directly within the app. The integrated testing features allow for a streamlined .</p>
             </div>
 
@@ -112,7 +123,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-4">
                 <!-- left -->
                 <div id="post-container" class="lg:col-span-2 grid grid-cols-1 gap-4">
-                    
+
                 </div>
 
                 <!-- right -->
@@ -121,7 +132,9 @@
                         <div id="title-view" class="p-4 space-y-4 bg-[#797DFC1A] rounded-lg">
                             <div class="flex justify-between">
                                 <h4 class="font-semibold">Title</h4>
-                                <h4 class="font-semibold"><i class="fa-solid fa-check-double text-green-600 mr-2"></i>Mark as read (<span id="mark-read">0</span>)</h4>
+                                <h4 class="font-semibold"><i
+                                        class="fa-solid fa-check-double text-green-600 mr-2"></i>Mark as read (<span
+                                        id="mark-read">0</span>)</h4>
                             </div>
                         </div>
                     </div>
@@ -134,7 +147,8 @@
             <div class="flex flex-col-reverse lg:flex-row bg-[#12132D] p-4 lg:p-16 rounded-xl">
                 <div class="p-3 lg:p-10 text-center lg:my-auto lg:text-left space-y-2 lg:space-y-5">
                     <h1 class="text-2xl lg:text-4xl text-white font-bold mt-5 lg:mt-0">Join Our Forum</h1>
-                    <p class="text-white font-medium">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results directly within the app. </p>
+                    <p class="text-white font-medium">Share your favorite opinion and win and wp forum coffee mug! Yes,
+                        you can run unit tests and view the results directly within the app. </p>
                     <button class="btn bg-blue-500 text-white border-none">Registered Now</button>
                 </div>
                 <div><img src="./images/joinforum.png" alt=""></div>
@@ -142,51 +156,40 @@
         </section>
 
         <!-- Latest Post -->
-        <section class="mx-4 my-4 lg:mx-24 lg:mt-16"> 
+        <section class="mx-4 my-4 lg:mx-24 lg:mt-16">
             <div class="text-center space-y-4 lg:mb-16">
                 <h1 class="text-3xl lg:text-5xl font-bold ">Latest Post</h1>
-                <p class="lg:w-2/4 text-center mx-auto text-[#12132D99]">Yes, you can run unit tests and view the results
+                <p class="lg:w-2/4 text-center mx-auto text-[#12132D99]">Yes, you can run unit tests and view the
+                    results
                     directly within the app. The integrated testing features allow for a streamlined .</p>
             </div>
 
             <div id="latest-post" class="grid gap-5 grid-cols-1 lg:grid-cols-3 mt-4">
-                <!-- <div class="border-2 p-4 lg:p-8 rounded-xl space-y-5">
-                    <img class="h-40 w-full rounded-lg" src="" alt="">
-                    <p><i class="fa-regular fa-calendar-check mr-2"></i><span>29 jan 2024</span></p>
-                    <h4 class="font-bold">What will a mars habitat force that impact in our daily life!!!</h4>
-                    <p>Yes, you can run unit tests and view the results directly within the app. </p>
 
-                    <div class="flex items-center gap-5">
-                        <div><img class="h-10 w-10 rounded-full" src="" alt=""></div>
-                        <div>
-                            <h4 class="font-bold">Cameron Williamson</h4>
-                            <p>ROR Developer</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </section>
     </main>
 
     <footer class="footer footer-center p-20 bg-[#12132D0D] text-primary-content mt-16">
         <aside>
-          <img src="./images/logo.png" alt="">
-          <p class="text-[#12132DB3] lg:w-2/3">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC
-          </p> 
-        </aside> 
+            <img src="./images/logo.png" alt="">
+            <p class="text-[#12132DB3] lg:w-2/3">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin literature from 45 BC
+            </p>
+        </aside>
         <nav>
-          <div class="grid grid-flow-col gap-4">
-            <a><i class="text-2xl fa-brands fa-twitter"></i></a>
-            <a><i class="text-2xl fa-brands fa-facebook-f"></i></a>
-            <a><i class="text-2xl fa-brands fa-instagram"></i></a>
-            <a><i class="text-2xl fa-brands fa-github"></i></a>
-          </div>
+            <div class="grid grid-flow-col gap-4">
+                <a><i class="text-2xl fa-brands fa-twitter"></i></a>
+                <a><i class="text-2xl fa-brands fa-facebook-f"></i></a>
+                <a><i class="text-2xl fa-brands fa-instagram"></i></a>
+                <a><i class="text-2xl fa-brands fa-github"></i></a>
+            </div>
         </nav>
         <p>Copyright © 2024 - All right reserved</p>
-      </footer>
+    </footer>
 
-      <!-- js added -->
+    <!-- js added -->
     <script src="./index.js"></script>
 </body>
 

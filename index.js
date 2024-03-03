@@ -9,13 +9,8 @@ const loadAllPost = async() => {
     const data = await response.json();
     const allPost = data.posts;
 
-    allPost.forEach((post) => {
-        // console.log(post);    
+    allPost.forEach((post) => {    
         let activeStatus ='';
-
-        // let res = post.title.replace(/'/g, " ");
-        // let es = escape(post.title)
-
         if(post.isActive){
             activeStatus = `bg-green-600`;
         }
@@ -37,7 +32,7 @@ const loadAllPost = async() => {
                     <p>#${post.category}</p>
                     <p>Author: ${post.author.name}</p>
                 </div>
-                <h1 class="font-bold">${post.title}</h1>
+                <h1 class="font-bold text-lg">${post.title}</h1>
                 <p class="">${post.description}</p>
 
                 <hr class="my-2 h-0.5 bg-gray-300">
@@ -76,15 +71,14 @@ const titleView = (a,b) =>{
 const loadLatestPost = async() => {
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await response.json();
+    
     data.forEach((newPost) => {
-        // console.log(newPost);
-
         const div = document.createElement('div');
         div.classList = `border-2 p-4 lg:p-8 rounded-xl space-y-5`;
         div.innerHTML = `
         <img class="h-40 w-full rounded-lg" src="${newPost.cover_image}" alt="">
                     <p><i class="fa-regular fa-calendar-check mr-2"></i><span>${newPost.author?.posted_date || "No Publish Date"}</span></p>
-                    <h4 class="font-bold">${newPost.title}</h4>
+                    <h4 class="font-bold text-lg">${newPost.title}</h4>
                     <p>${newPost.description}</p>
 
                     <div class="flex items-center gap-5">
