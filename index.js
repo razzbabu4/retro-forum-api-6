@@ -76,7 +76,7 @@ const loadLatestPost = async() => {
         const div = document.createElement('div');
         div.classList = `border-2 p-4 lg:p-8 rounded-xl space-y-5`;
         div.innerHTML = `
-        <img class="h-40 w-full rounded-lg" src="${newPost.cover_image}" alt="">
+        <img class="h-48 w-full rounded-lg" src="${newPost.cover_image}" alt="">
                     <p><i class="fa-regular fa-calendar-check mr-2"></i><span>${newPost.author?.posted_date || "No Publish Date"}</span></p>
                     <h4 class="font-bold text-lg">${newPost.title}</h4>
                     <p>${newPost.description}</p>
