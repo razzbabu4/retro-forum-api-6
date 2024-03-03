@@ -13,6 +13,9 @@ const loadAllPost = async() => {
         // console.log(post);    
         let activeStatus ='';
 
+        // let res = post.title.replace(/'/g, " ");
+        // let es = escape(post.title)
+
         if(post.isActive){
             activeStatus = `bg-green-600`;
         }
@@ -45,7 +48,7 @@ const loadAllPost = async() => {
                         <p><i class="fa-regular fa-eye mr-2"></i><span>${post.view_count}</span></p>
                         <p><i class="fa-regular fa-clock mr-2"></i><span>${post.posted_time}</span></p>
                     </div>
-                    <div onclick="titleView('${post.title}', '${post.view_count}')" class="h-8 w-8 rounded-full bg-green-600 text-center p-1 cursor-pointer">
+                    <div onclick="titleView('${escape(post.title)}', '${post.view_count}')" class="h-8 w-8 rounded-full bg-green-600 text-center p-1 cursor-pointer">
                         <i class="fa-regular fa-envelope-open text-white"></i>
                     </div>
                 </div>
@@ -61,7 +64,7 @@ const titleView = (a,b) =>{
     const titleViewDiv = document.getElementById('title-view');
     const div = document.createElement('div');
     div.classList = `flex justify-between bg-white px-3 py-2 rounded-xl`
-    div.innerHTML = `<h4 class="font-bold">${a}</h4>
+    div.innerHTML = `<h4 class="font-bold">${unescape(a)}</h4>
     <p class="flex items-center"><i class="fa-regular fa-eye mr-2"></i><span>${b}</span></p>`
     document.getElementById('mark-read').innerText = count++;
 
@@ -97,17 +100,16 @@ const loadLatestPost = async() => {
     })
 }
 
+
+// search post by category
 const searchPost = async(searchText) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
     const data = await response.json();
     const categoryPost = data.posts;
-    // console.log(categoryPost);
     postContainer.textContent = ''
 
-    categoryPost.forEach((post) => {
-        // console.log(post);    
+    categoryPost.forEach((post) => {  
         let activeStatus ='';
-
         if(post.isActive){
             activeStatus = `bg-green-600`;
         }
@@ -129,7 +131,7 @@ const searchPost = async(searchText) => {
                     <p>#${post.category}</p>
                     <p>Author: ${post.author.name}</p>
                 </div>
-                <h1 class="font-bold">'${post.title}'</h1>
+                <h1 class="font-bold">${post.title}</h1>
                 <p class="">${post.description}</p>
 
                 <hr class="my-2 h-0.5 bg-gray-300">
@@ -140,7 +142,7 @@ const searchPost = async(searchText) => {
                         <p><i class="fa-regular fa-eye mr-2"></i><span>${post.view_count}</span></p>
                         <p><i class="fa-regular fa-clock mr-2"></i><span>${post.posted_time}</span></p>
                     </div>
-                    <div onclick="titleView('${post.title}', '${post.view_count}')" class="h-8 w-8 rounded-full bg-green-600 text-center p-1 cursor-pointer">
+                    <div onclick="titleView('${escape(post.title)}', '${post.view_count}')" class="h-8 w-8 rounded-full bg-green-600 text-center p-1 cursor-pointer">
                         <i class="fa-regular fa-envelope-open text-white"></i>
                     </div>
                 </div>
