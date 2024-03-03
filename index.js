@@ -157,6 +157,11 @@ const searchCategoryPost = () => {
     searchPost(searchValue);
     document.getElementById('Search-text').value = ""
     discussionSection.scrollIntoView({behavior: "smooth"});
+
+    document.getElementById('toggle-spinner').classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('toggle-spinner').classList.add('hidden');
+    }, 2000)
 }
 
 loadLatestPost();
