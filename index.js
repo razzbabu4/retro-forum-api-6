@@ -1,12 +1,12 @@
 const postContainer = document.getElementById('post-container');
+const latestPost = document.getElementById('latest-post');
 
-
+// all post
 const loadAllPost = async() => {
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await response.json();
     const allPost = data.posts;
 
-    
     allPost.forEach((post) => {
         // console.log(post);    
         let activeStatus ='';
@@ -66,13 +66,32 @@ const titleView = (a,b) =>{
     titleViewDiv.appendChild(div);
 }
 
+// latest post
 
 const loadLatestPost = async() => {
     const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await response.json();
-    // console.log(data)
-    data.forEach((latestPost) => {
-        console.log(latestPost)
+    data.forEach((newPost) => {
+        console.log(newPost);
+
+        const div = document.createElement('div');
+        div.classList = `border-2 p-4 lg:p-8 rounded-xl space-y-5`;
+        div.innerHTML = `
+        <img class="h-40 w-full rounded-lg" src="${newPost.cover_image}" alt="">
+                    <p><i class="fa-regular fa-calendar-check mr-2"></i><span>${newPost.author?.posted_date || "No Publish Date"}</span></p>
+                    <h4 class="font-bold">${newPost.title}</h4>
+                    <p>${newPost.description}</p>
+
+                    <div class="flex items-center gap-5">
+                        <div><img class="h-10 w-10 rounded-full" src="${newPost.profile_image}" alt=""></div>
+                        <div>
+                            <h4 class="font-bold">${newPost.author.name}</h4>
+                            <p>${newPost.author?.designation || "Unknown"}</p>
+                        </div>
+                    </div>
+        `;
+        latestPost.appendChild(div);
+
     })
 }
 
