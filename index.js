@@ -6,19 +6,29 @@ const loadAllPost = async() => {
     const data = await response.json();
     const allPost = data.posts;
 
+    
     allPost.forEach((post) => {
-        console.log(post);
+        // console.log(post);    
+        let activeStatus ='';
+
+        if(post.isActive){
+            activeStatus = `bg-green-600`;
+        }
+        else{
+            activeStatus = `bg-red-600`;
+        }
+
         const div = document.createElement('div');
         div.classList = `p-4 lg:p-6 bg-[#797DFC1A] flex flex-col lg:flex-row gap-2 lg:gap-5 rounded-lg`;
         div.innerHTML = `
-        <!-- img left-->
-        <div class="relative">
+            <!-- img left-->
+        <div class="relative w-10">
             <img class="rounded-xl h-10 w-10" src="${post.image}" alt="">
-                <div class="absolute h-3 w-3 rounded-full bg-red-600 border-2 border-white -top-1 -right-1"></div>
-            </div>
+                <div class="absolute h-3 w-3 rounded-full ${activeStatus}  border-2 border-white -top-1 -right-1"></div>
+        </div>
             <!-- info right-->
             <div class="space-y-4 w-full">
-                <div class="flex flex-col lg:flex-row gap-2 lg:gap-5">
+                <div class="flex justify-between lg:justify-normal gap-2 lg:gap-5">
                     <p>#${post.category}</p>
                     <p>Author: ${post.author.name}</p>
                 </div>
@@ -33,16 +43,39 @@ const loadAllPost = async() => {
                         <p><i class="fa-regular fa-eye mr-2"></i><span>${post.view_count}</span></p>
                         <p><i class="fa-regular fa-clock mr-2"></i><span>${post.posted_time}</span></p>
                     </div>
-                    <div class="h-8 w-8 rounded-full bg-green-600 text-center p-1">
+                    <div onclick="titleView('${post.title}', '${post.view_count}')" class="h-8 w-8 rounded-full bg-green-600 text-center p-1">
                         <i class="fa-regular fa-envelope-open text-white"></i>
                     </div>
                 </div>
             </div>
         `;
-        postContainer.appendChild(div)
-
-        
+       
+        postContainer.appendChild(div);  
     });
+    
 }
+let count = 1;
+const titleView = (a,b) =>{
+    const titleViewDiv = document.getElementById('title-view');
+    const div = document.createElement('div');
+    div.classList = `flex justify-between bg-white px-3 py-2 rounded-xl`
+    div.innerHTML = `<h4 class="font-bold">${a}</h4>
+    <p class="flex items-center"><i class="fa-regular fa-eye mr-2"></i><span>${b}</span></p>`
+    document.getElementById('mark-read').innerText = count++;
+
+    titleViewDiv.appendChild(div);
+}
+
+
+const loadLatestPost = async() => {
+    const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+    const data = await response.json();
+    // console.log(data)
+    data.forEach((latestPost) => {
+        console.log(latestPost)
+    })
+}
+
+loadLatestPost();
 
 loadAllPost();

@@ -113,14 +113,15 @@
                 <!-- right -->
                 <div class="lg:col-span-1 grid grid-cols-1 gap-4">
                     <div>
-                        <div class="p-4 space-y-4 bg-[#797DFC1A] rounded-lg">
-                            <div>
-                                <h4>Title</h4>
+                        <div id="title-view" class="p-4 space-y-4 bg-[#797DFC1A] rounded-lg">
+                            <div class="flex justify-between">
+                                <h4 class="font-semibold">Title</h4>
+                                <h4 class="font-semibold"><i class="fa-solid fa-check-double text-green-600 mr-2"></i>Mark as read (<span id="mark-read">0</span>)</h4>
                             </div>
-                            <div class="flex gap-1 bg-white px-3 py-2 rounded-xl">
+                            <!-- <div class="flex gap-1 bg-white px-3 py-2 rounded-xl">
                                 <h4 class="font-bold">10 Kids Unaware of Their Halloween Costume</h4>
                                 <p class="flex items-center"><i class="fa-regular fa-eye mr-2"></i><span>100</span></p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -140,7 +141,7 @@
         </section>
 
         <!-- Latest Post -->
-        <section class="mx-4 my-4 lg:mx-24 lg:mt-16">
+        <section class="mx-4 my-4 lg:mx-24 lg:mt-16"> 
             <div class="text-center space-y-4 lg:mb-16">
                 <h1 class="text-3xl lg:text-5xl font-bold ">Latest Post</h1>
                 <p class="lg:w-2/4 text-center mx-auto text-[#12132D99]">Yes, you can run unit tests and view the results
